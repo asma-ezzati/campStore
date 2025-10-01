@@ -1,0 +1,13 @@
+{
+   "product":[
+    {
+         "id": 1,
+        "title": "چادر کوهنوردی 2 نفره",
+        "price": 2500000,
+        "category": "چادر",
+        "image": "/images/tent1.jpg",
+        "description": "مقاوم در برابر باران و باد، وزن سبک"
+    }
+   ]
+  
+}
