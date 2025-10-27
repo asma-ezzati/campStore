@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <nav className="absolute top-4 right-[470px] font-Vazir text-lg  border-bistre  p-4 border-b  ">
+        <nav className="absolute top-4 right-[470px] font-Vazir text-xl border-bistre  p-4 border-b  ">
           <button
             className="px-3 text-bistre"
             onClick={() => {
