@@ -26,19 +26,20 @@ const Navbar = () => {
           <button
             className="px-3 text-bistre"
             onClick={() => {
-              scrollToSections(storeRef);
-            }}
-          >
-            فروشگاه
-          </button>
-          <button
-            className="px-3 text-bistre"
-            onClick={() => {
               scrollToSections(aboutRef);
             }}
           >
             درباره ما
           </button>
+          <button
+            className="px-3 text-bistre"
+            onClick={() => {
+              scrollToSections(storeRef);
+            }}
+          >
+            فروشگاه
+          </button>
+
           <button
             className="px-3 text-bistre"
             onClick={() => {
@@ -51,11 +52,11 @@ const Navbar = () => {
         <section ref={homeRef} style={{ height: "100vh" }}>
           <Home />
         </section>
-        <section ref={storeRef} style={{ height: "100vh" }}>
-          فروشگاه
-        </section>
         <section ref={aboutRef} style={{ height: "100vh" }}>
           درباره ما
+        </section>
+        <section ref={storeRef} style={{ height: "100vh" }}>
+          فروشگاه
         </section>
         <section ref={contactRef} style={{ height: "100vh" }}>
           تماس
