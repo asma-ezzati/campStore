@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import Home from "./Home";
+import AboutUs from "./AboutUs";
 
 const Navbar = () => {
   const homeRef = useRef(null);
@@ -53,7 +54,7 @@ const Navbar = () => {
           <Home />
         </section>
         <section ref={aboutRef} style={{ height: "100vh" }}>
-          درباره ما
+          <AboutUs />
         </section>
         <section ref={storeRef} style={{ height: "100vh" }}>
           فروشگاه
