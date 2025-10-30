@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <div
-        className="h-screen w-full bg-cover bg-center bg-no-repeat bg-fixed"
+        className="h-screen  bg-cover bg-center bg-no-repeat bg-fixed rounded-md"
         style={{ backgroundImage: `url(${banner})` }}
       >
         <div className=" py-44 mx-10  h-full ">
