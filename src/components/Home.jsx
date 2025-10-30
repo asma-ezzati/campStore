@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
 import banner from "../assets/banner1.webp";
-import Navbar from "./Navbar";
 
 const Home = () => {
   return (
     <>
       <div
-        className="h-screen  bg-cover bg-center bg-no-repeat bg-fixed rounded-md"
+        className="h-screen  bg-cover bg-center bg-no-repeat bg-fixed rounded-md m-2"
         style={{ backgroundImage: `url(${banner})` }}
       >
         <div className=" py-44 mx-10  h-full ">
