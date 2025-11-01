@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../reducer/productsApi";
+import { FiShoppingBag } from "react-icons/fi";
 
 const Shop = () => {
   const { data: products, isLoading, error } = useGetProductsQuery();
@@ -12,7 +13,7 @@ const Shop = () => {
 
   return (
     <>
-      <div className=" bg-brown m-2 rounded-md h-screen flex items-center justify-center flex-wrap  ">
+      <div className=" bg-brown m-2 rounded-md h-screen flex items-center justify-center flex-wrap relative ">
         {limitedProducts.map((product) => (
           <div
             key={product.id}
@@ -28,6 +29,12 @@ const Shop = () => {
             </h2>
           </div>
         ))}
+        <div className="absolute top-10 left-10 hover:transition-transform hover:-skew-x-12 hover:skew-y-3 ">
+          <Link className=" font-Vazir text-xl text-peach flex ">
+            همه ی محصولات
+            <FiShoppingBag size={25} />
+          </Link>
+        </div>
       </div>
     </>
   );
