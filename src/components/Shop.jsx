@@ -30,7 +30,10 @@ const Shop = () => {
           </div>
         ))}
         <div className="absolute top-10 left-10 hover:transition-transform hover:-skew-x-12 hover:skew-y-3 ">
-          <Link className=" font-Vazir text-xl text-peach flex ">
+          <Link
+            to={"/products"}
+            className=" font-Vazir text-xl text-peach flex "
+          >
             همه ی محصولات
             <FiShoppingBag size={25} />
           </Link>
