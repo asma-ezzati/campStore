@@ -8,14 +8,14 @@ const ProductsList = () => {
 
   return (
     <>
-      <div className=" grid grid-cols-4  bg-peach ">
+      <div className=" grid grid-cols-4  bg-peach bg-opacity-40  ">
         <h1 className="col-span-4 font-Vazir text-bistre text-2xl font-bold text-center mt-6 ">
           محصولات فروشگاه ما
         </h1>
         {products.map((product) => (
           <div
             key={product.id}
-            className=" bg-lion rounded-tl-full rounded-tr-full m-2 w-[300px] h-[435px]  "
+            className=" border-2 border-lion rounded-md  m-2 w-[300px] h-[435px]  "
           >
             <img
               src={product.image}
