@@ -24,6 +24,7 @@ const ProductsList = () => {
     return products.map((p) => {
       const catName = catMap.get(String(p.category)) ?? "نامشخص";
       return { ...p, categoryName: catName };
+      //products:{id,title,price,category,image,categoryName}
     });
   }, [products, categories]);
 
