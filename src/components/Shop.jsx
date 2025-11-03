@@ -11,7 +11,7 @@ const Shop = () => {
     <>
       <div className=" bg-brown m-2 rounded-md h-screen grid grid-cols-5 grid-row-2 items-center  relative ">
         {category.map((cat) => (
-          <Link key={cat.id}>
+          <Link key={cat.id} to={`/categories/${cat.id}`}>
             <div className=" mt-14 m-4 rounded-xl shadow-lg hover:shadow-bistre transition-shadow duration-300 h-[200px] bg-lion ">
               <img src={cat.image} className="w-[150px] mx-auto p-2 "></img>
               <h1 className=" font-Vazir text-xl text-peach text-center ">
