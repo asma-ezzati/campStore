@@ -312,31 +312,38 @@
    "category":[
       {
          "id":"100",
-         "name":"چادر"
+         "name":"چادر",
+         "image": "/images/tent1.webp"
       },
       {
          "id":"99",
-         "name":"کیسه خواب"
+         "name":"کیسه خواب",
+         "image": "/images/Sleeping-Bag1.webp"
       },
       {
          "id":"98",
-         "name":"زیر انداز"
+         "name":"زیر انداز",
+         "image": "/images/mat1.webp"
       },
       {
          "id":"97",
-         "name":"کوله پشتی"
+         "name":"کوله پشتی",
+         "image": "/images/backpack1.webp"
       },
       {
          "id":"96",
-         "name":"وسایل پخت و پز "
+         "name":"وسایل پخت و پز ",
+          "image": "/images/Cooking&Food1.webp"
       },
       {
          "id":"95",
-         "name":"کمک‌های اولیه و ایمنی"
+         "name":"کمک‌های اولیه و ایمنی",
+         "image": "/images/FirstAid&Safety1.webp"
       },
       {
          "id":"94",
-         "name":"صندلی تاشو"
+         "name":"صندلی تاشو",
+          "image": "/images/Camping-Chair1.webp"
       }
    ]
   
