@@ -3,6 +3,7 @@ import Home from "./Home";
 import AboutUs from "./AboutUs";
 import Shop from "./shop";
 import ContactUs from "./ContactUs";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const homeRef = useRef(null);
@@ -17,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <nav className="absolute top-4 right-[470px] font-Vazir text-xl border-bistre  p-4 border-b  ">
+        <nav className="absolute top-4 right-[430px] font-Vazir text-xl border-bistre  p-4 border-b  ">
           <button
             className="px-3 text-bistre"
             onClick={() => {
@@ -51,6 +52,9 @@ const Navbar = () => {
           >
             تماس با ما
           </button>
+          <Link to={"/signin"} className="px-3 text-bistre">
+            ثبت نام
+          </Link>
         </nav>
         <section ref={homeRef} style={{ height: "100vh" }}>
           <Home />
