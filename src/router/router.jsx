@@ -3,6 +3,7 @@ import App from "../App";
 import ProductsList from "../components/ProductsList";
 import CategoryPage from "../components/CategoryPage";
 import Signin from "../components/Signin";
+import AdminPage from "../components/adminPannel/AdminPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
   {
     path: "/signin",
     element: <Signin />,
+  },
+  {
+    path: "/admin",
+    element: <AdminPage />,
   },
 ]);
