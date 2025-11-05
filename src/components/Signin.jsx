@@ -1,3 +1,4 @@
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import banner3 from "../assets/banner3.jpg";
 const Signin = () => {
   return (
@@ -9,21 +10,21 @@ const Signin = () => {
               ساخت حساب کاربری
             </h1>
 
-            <form>
-              <input
-                type="email"
-                placeholder="ایمیل"
-                className="block w-4/5 mx-auto m-5 p-2 border-2  border-bistre rounded-md focus:outline-none focus:border-red outline-none font-Vazir text-md bg-lion text-bistre placeholder:text-bistre  "
-              ></input>
-              <input
-                type="password"
-                placeholder="پسورد"
-                className="block w-4/5 mx-auto m-5 p-2 border-2 border-bistre  rounded-md focus:outline-none focus:border-red font-Vazir text-md  bg-lion  text-bistre placeholder:text-bistre "
-              ></input>
-              <button className="font-Vazir w-4/5   rounded-md my-5 mx-12 p-2 text-md bg-red text-peach hover:shadow-xl shadow-red ">
-                ثبت نام
-              </button>
-            </form>
+            <Formik
+              initialValues={{ email: "", password: "" }}
+              onSubmit={() => {}}
+            >
+              <Form>
+                <label>ایمیل</label>
+                <Field name="email" type="email" />
+                <ErrorMessage name="email" component="div"></ErrorMessage>
+
+                <label>پسورد</label>
+                <Field name="password" type="password" />
+                <ErrorMessage name="password" component="div"></ErrorMessage>
+                <button type="submit">ثبت نام</button>
+              </Form>
+            </Formik>
           </div>
           <img src={banner3} className="w-[300px] p-5  "></img>
         </div>
