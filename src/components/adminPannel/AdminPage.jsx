@@ -1,3 +1,5 @@
+import Sidebar from "./Sidebar";
+
 const AdminPage = () => {
   return (
     <>
@@ -6,8 +8,10 @@ const AdminPage = () => {
           <h1>Admin Pannel</h1>
         </div>
         <div className="grid grid-cols-12">
-          <div className="sidebar border-2 h-min  "></div>
-          <div className="products"></div>
+          <div className=" ">
+            <Sidebar />
+          </div>
+          <div className="">{/* <Products/> */}</div>
         </div>
       </div>
     </>
