@@ -25,14 +25,11 @@ const ProductsAdmin = () => {
 
   return (
     <>
-      <div className=" grid grid-cols-4  bg-peach bg-opacity-40  ">
-        <h1 className="col-span-4 font-Vazir text-bistre text-2xl font-bold text-center mt-6 ">
-          محصولات فروشگاه ما
-        </h1>
+      <div className=" grid  grid-cols-4 m-1  ">
         {finalData.map((product) => (
           <div
             key={product.id}
-            className=" border-2 border-lion rounded-md  m-2 w-[300px] h-[435px]  "
+            className=" border-2 border-bistre rounded-md  m-2 w-[280px] h-[435px]  "
           >
             <img
               src={product.image}
@@ -53,12 +50,12 @@ const ProductsAdmin = () => {
               </div>
               <div className="grid grid-rows-1   ">
                 <Link
-                  to={`/products/${product.id}`}
-                  className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
+                  to={`/admin/edit`}
+                  className="bg-bistre w-[55px] h-[55px] rounded-full m-2 hover:bg-brown "
                 >
                   <FaUserEdit size={30} className="text-peach m-3 " />
                 </Link>
-                <button className="bg-bistre w-[55px] h-[55px] rounded-full m-2">
+                <button className="bg-bistre w-[55px] h-[55px] rounded-full m-2 hover:bg-red ">
                   <MdDeleteForever size={30} className="text-peach m-3 " />
                 </button>
               </div>
