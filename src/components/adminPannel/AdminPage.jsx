@@ -1,9 +1,10 @@
+import ProductsAdmin from "./ProductsAdmin";
 import Sidebar from "./Sidebar";
 
 const AdminPage = () => {
   return (
     <>
-      <div className=" h-screen bg-lion  ">
+      <div className=" bg-lion  ">
         <div className="font-Vazir text-center text-xl text-bistre font-bold py-6">
           <h1>Admin Pannel</h1>
         </div>
@@ -11,7 +12,9 @@ const AdminPage = () => {
           <div className=" ">
             <Sidebar />
           </div>
-          <div className="">{/* <Products/> */}</div>
+          <div className="col-span-11">
+            <ProductsAdmin />
+          </div>
         </div>
       </div>
     </>
