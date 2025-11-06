@@ -3,6 +3,9 @@ import {
   useGetCategoriesQuery,
   useGetProductsQuery,
 } from "../../reducer/productsApi";
+import { Link } from "react-router-dom";
+import { FaUserEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 const ProductsAdmin = () => {
   const { data: products } = useGetProductsQuery();
@@ -53,10 +56,10 @@ const ProductsAdmin = () => {
                   to={`/products/${product.id}`}
                   className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
                 >
-                  <FaEye size={30} className="text-peach m-3 " />
+                  <FaUserEdit size={30} className="text-peach m-3 " />
                 </Link>
                 <button className="bg-bistre w-[55px] h-[55px] rounded-full m-2">
-                  <MdShoppingCart size={30} className="text-peach m-3 " />
+                  <MdDeleteForever size={30} className="text-peach m-3 " />
                 </button>
               </div>
             </div>
