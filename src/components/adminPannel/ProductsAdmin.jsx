@@ -48,7 +48,7 @@ const ProductsAdmin = () => {
                 </h3>
               </div>
               <div className="grid grid-rows-1   ">
-                <EditProducts />
+                <EditProducts id={product.id} />
 
                 <DeleteProduct id={product.id} />
               </div>
