@@ -16,6 +16,9 @@ export const productsApi = createApi({
         method: "DELETE",
         body: productId,
       }),
+      invalidatesTags: (result, error, { productId }) => [
+        { type: "Products", productId },
+      ],
     }),
   }),
 });
