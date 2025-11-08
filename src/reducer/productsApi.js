@@ -10,6 +10,7 @@ export const productsApi = createApi({
     }),
     getCategories: builder.query({
       query: () => `category`,
+      providesTags: ["Categories"],
     }),
   }),
 });
