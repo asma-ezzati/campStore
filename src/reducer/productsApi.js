@@ -9,10 +9,8 @@ export const productsApi = createApi({
       providesTags: ["Products"],
     }),
     getProductById: builder.query({
-      query: (productId) => `product/${productId}`,
-      providesTags: (result, error, { productId }) => [
-        { type: "Product", productId },
-      ],
+      query: (id) => `products/${id}`,
+      providesTags: (result, error, { id }) => [{ type: "Product", id }],
     }),
     getCategories: builder.query({
       query: () => `category`,
@@ -29,14 +27,12 @@ export const productsApi = createApi({
       ],
     }),
     editProducts: builder.mutation({
-      query: (initialproduct, productId) => ({
-        url: `products/${productId}`,
+      query: (id, ...initialState) => ({
+        url: `products/${id}`,
         method: "PUT",
-        body: initialproduct,
+        body: initialState,
       }),
-      invalidatesTags: (result, error, { productId }) => [
-        { type: "Products", productId },
-      ],
+      invalidatesTags: (result, error, { id }) => [{ type: "Products", id }],
     }),
   }),
 });
