@@ -4,6 +4,7 @@ import ProductsList from "../components/ProductsList";
 import CategoryPage from "../components/CategoryPage";
 import Signin from "../components/Signin";
 import AdminPage from "../components/adminPannel/AdminPage";
+import EditProductForm from "../components/adminPannel/EditProductForm";
 
 export const router = createBrowserRouter([
   {
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPage />,
+  },
+  {
+    path: "/admin/edit/:productId",
+    element: <EditProductForm />,
   },
 ]);
