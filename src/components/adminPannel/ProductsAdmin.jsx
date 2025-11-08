@@ -56,7 +56,7 @@ const ProductsAdmin = () => {
                 >
                   <FaUserEdit size={30} className="text-peach m-3 " />
                 </Link>
-                <DeleteProduct />
+                <DeleteProduct id={product.id} />
               </div>
             </div>
           </div>
