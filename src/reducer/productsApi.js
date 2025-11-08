@@ -8,6 +8,12 @@ export const productsApi = createApi({
       query: () => `products`,
       providesTags: ["Products"],
     }),
+    getProductById: builder.query({
+      query: (productId) => `product/${productId}`,
+      providesTags: (result, error, { productId }) => [
+        { type: "Product", productId },
+      ],
+    }),
     getCategories: builder.query({
       query: () => `category`,
       providesTags: ["Categories"],
@@ -37,6 +43,7 @@ export const productsApi = createApi({
 
 export const {
   useGetProductsQuery,
+  useGetProductByIdQuery,
   useGetCategoriesQuery,
   useDeleteProductMutation,
   useEditProductsMutation,
