@@ -1,2 +1,81 @@
-const AddProduct = () => {};
+import { Formik, Form, Field } from "formik";
+import { useGetCategoriesQuery } from "../../reducer/productsApi";
+
+const AddProduct = () => {
+  const { data: categories } = useGetCategoriesQuery();
+
+  return (
+    <>
+      <div className="h-screen bg-lion py-12   ">
+        <div className="max-w-2xl mx-auto p-4 bg-peach bg-opacity-45  rounded-md  shadow-xl">
+          <h2 className="font-Vazir text-bistre text-center text-2xl mb-2">
+            ویرایش محصول
+          </h2>
+          <Formik>
+            <Form className="space-y-4">
+              <div>
+                <label className=" font-Vazir block text-md text-bistre font-medium">
+                  عنوان
+                </label>
+                <Field
+                  name="title"
+                  className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
+                ></Field>
+              </div>
+
+              <div>
+                <label className=" font-Vazir block text-md text-bistre font-medium">
+                  قیمت
+                </label>
+                <Field
+                  name="price"
+                  className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
+                ></Field>
+              </div>
+
+              <div>
+                <label className=" font-Vazir block text-md text-bistre font-medium">
+                  دسته بندی
+                </label>
+                <Field
+                  name="category"
+                  as="select"
+                  className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
+                >
+                  <option value="">انتخاب کنید</option>
+                  {categories?.map((cat) => (
+                    <option
+                      key={cat.id}
+                      value={String(cat.id)}
+                      className="hover:bg-red"
+                    >
+                      {cat.name}
+                    </option>
+                  ))}
+                </Field>
+              </div>
+
+              <div>
+                <label className=" font-Vazir block text-md text-bistre font-medium">
+                  آدرس تصویر
+                </label>
+                <Field
+                  name="image"
+                  className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
+                ></Field>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-lion font-Vazir text-peach w-full my-4 px-4 py-2 rounded disabled:bg-opacity-50 hover:bg-bistre "
+              >
+                ذخیره
+              </button>
+            </Form>
+          </Formik>
+        </div>
+      </div>
+    </>
+  );
+};
 export default AddProduct;
