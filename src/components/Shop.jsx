@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../reducer/productsApi";
+import LoadingPage from "../common/LoadingPage";
 import { FiShoppingBag } from "react-icons/fi";
 
 const Shop = () => {
-  const { data: category, error } = useGetCategoriesQuery();
+  const { data: category, isLoading, error } = useGetCategoriesQuery();
 
   if (!category) return [];
+  if (isLoading) return <LoadingPage />;
 
   return (
     <>
