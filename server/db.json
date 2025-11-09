@@ -1,18 +1,18 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "چادر کوهنوردی ",
+      "title": "چادر کوهنوردی",
       "price": 2500000,
       "category": "100",
-      "image": "/images/tent1.webp"
+      "image": "/images/tent1.webp",
+      "id": "1"
     },
     {
-      "id": "2",
       "title": "چادر کوهنوردی ",
-      "price": 3500000,
+      "price": "3800000",
       "category": "100",
-      "image": "/images/tent2.webp"
+      "image": "/images/tent2.webp",
+      "id": "2"
     },
     {
       "id": "3",
