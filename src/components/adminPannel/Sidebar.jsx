@@ -11,10 +11,18 @@ const Sidebar = () => {
         <Link to={`/admin/add`}>
           <IoBagAddOutline size={30} className="my-14 mx-5 text-bistre" />
         </Link>
-        <BsCalendar2Date size={30} className="my-14 mx-5 text-bistre" />
-        <IoSettingsOutline size={30} className="my-14 mx-5 text-bistre" />
-        <FaRegEye size={30} className="my-14 mx-5 text-bistre" />
-        <IoMdExit size={30} className="my-14 mx-5 text-bistre" />
+        <a href="https://calendar.google.com/calendar/u/0/r" target="_blank">
+          <BsCalendar2Date size={30} className="my-14 mx-5 text-bistre" />
+        </a>
+        <Link to={"/setting"}>
+          <IoSettingsOutline size={30} className="my-14 mx-5 text-bistre" />
+        </Link>
+        <Link to={"/products"}>
+          <FaRegEye size={30} className="my-14 mx-5 text-bistre" />
+        </Link>
+        <Link to={"/"}>
+          <IoMdExit size={30} className="my-14 mx-5 text-bistre" />
+        </Link>
       </div>
     </>
   );
