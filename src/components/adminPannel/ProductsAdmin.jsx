@@ -6,9 +6,19 @@ import {
 import DeleteProduct from "./DeleteProduct";
 import EditProducts from "./EditProducts";
 
+import LoadingPage from "../../common/LoadingPage";
+
 const ProductsAdmin = () => {
-  const { data: products } = useGetProductsQuery();
-  const { data: categories } = useGetCategoriesQuery();
+  const {
+    data: products,
+    isLoading: pLoading,
+    error: pError,
+  } = useGetProductsQuery();
+  const {
+    data: categories,
+    isLoading: cLoading,
+    error: cError,
+  } = useGetCategoriesQuery();
 
   const finalData = useMemo(() => {
     if (!products || !categories) return [];
@@ -21,6 +31,17 @@ const ProductsAdmin = () => {
       return { ...p, categoryName: catName };
     });
   }, [products, categories]);
+
+  if (pError || cError)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-red-500">
+          خطا در بارگذاری داده‌ها. دوباره تلاش کنید.
+        </p>
+      </div>
+    );
+
+  if (pLoading || cLoading) return <LoadingPage />;
 
   return (
     <>
