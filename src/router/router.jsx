@@ -5,6 +5,7 @@ import CategoryPage from "../components/CategoryPage";
 import Signin from "../components/Signin";
 import AdminPage from "../components/adminPannel/AdminPage";
 import EditProductForm from "../components/adminPannel/EditProductForm";
+import AddProduct from "../components/adminPannel/AddProduct";
 
 export const router = createBrowserRouter([
   {
@@ -30,5 +31,9 @@ export const router = createBrowserRouter([
   {
     path: "/admin/edit/:productId",
     element: <EditProductForm />,
+  },
+  {
+    path: "/admin/add",
+    element: <AddProduct />,
   },
 ]);
