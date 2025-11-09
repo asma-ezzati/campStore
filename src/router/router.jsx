@@ -6,6 +6,7 @@ import Signin from "../components/Signin";
 import AdminPage from "../components/adminPannel/AdminPage";
 import EditProductForm from "../components/adminPannel/EditProductForm";
 import AddProduct from "../components/adminPannel/AddProduct";
+import LoadingPage from "../common/LoadingPage";
 
 export const router = createBrowserRouter([
   {
@@ -35,5 +36,9 @@ export const router = createBrowserRouter([
   {
     path: "/admin/add",
     element: <AddProduct />,
+  },
+  {
+    path: "/setting",
+    element: <LoadingPage />,
   },
 ]);
