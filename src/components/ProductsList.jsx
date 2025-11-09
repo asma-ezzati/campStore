@@ -6,10 +6,11 @@ import {
 import { MdShoppingCart } from "react-icons/md";
 import { FaEye } from "react-icons/fa6";
 import { useMemo } from "react";
+import LoadingPage from "../common/LoadingPage";
 
 const ProductsList = () => {
-  const { data: products } = useGetProductsQuery();
-  const { data: categories } = useGetCategoriesQuery();
+  const { data: products, isLoading: pLoading } = useGetProductsQuery();
+  const { data: categories, isLoading: cLoading } = useGetCategoriesQuery();
 
   const finalData = useMemo(() => {
     //از ممو برای این استفاده میکنیم که از رندر مجدد جلوگیری بشه
@@ -27,6 +28,8 @@ const ProductsList = () => {
       //products:{id,title,price,category,image,categoryName}
     });
   }, [products, categories]);
+
+  if (pLoading || cLoading) return <LoadingPage />;
 
   return (
     <>
