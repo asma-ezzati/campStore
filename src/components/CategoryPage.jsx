@@ -6,14 +6,12 @@ import {
 import { useMemo } from "react";
 import { FaEye } from "react-icons/fa6";
 import { MdShoppingCart } from "react-icons/md";
+import LoadingPage from "../common/LoadingPage";
 
 const CategoryPage = () => {
   const { catId } = useParams();
-  const { data: products } = useGetProductsQuery();
-  const { data: categories } = useGetCategoriesQuery();
-
-  console.log("params categoryId:", catId);
-  console.log("categories:", categories);
+  const { data: products, isLoading: pLoading } = useGetProductsQuery();
+  const { data: categories, isLoading: cLoading } = useGetCategoriesQuery();
 
   const finalData = useMemo(() => {
     if (!products || !categories) return [];
@@ -30,7 +28,7 @@ const CategoryPage = () => {
 
   const cat = categories.find((cat) => String(cat.id) === String(catId));
 
-  console.log(cat);
+  if (pLoading || cLoading) return <LoadingPage />;
 
   return (
     <>
