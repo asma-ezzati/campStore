@@ -46,6 +46,14 @@ export const productsApi = createApi({
         { type: "Products", id: "LIST" },
       ],
     }),
+    addProduct: builder.mutation({
+      query: (body) => ({
+        query: "products",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: [{ type: "Products", id: "LIST" }],
+    }),
   }),
 });
 
@@ -55,4 +63,5 @@ export const {
   useGetCategoriesQuery,
   useDeleteProductMutation,
   useEditProductsMutation,
+  useAddProductMutation,
 } = productsApi;
