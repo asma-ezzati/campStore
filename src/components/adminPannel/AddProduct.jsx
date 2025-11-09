@@ -1,17 +1,44 @@
 import { Formik, Form, Field } from "formik";
-import { useGetCategoriesQuery } from "../../reducer/productsApi";
+import {
+  useGetCategoriesQuery,
+  useAddProductMutation,
+} from "../../reducer/productsApi";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
+  const navigate = useNavigate();
   const { data: categories } = useGetCategoriesQuery();
+  const [addProduct] = useAddProductMutation();
 
   return (
     <>
       <div className="h-screen bg-lion py-12   ">
         <div className="max-w-2xl mx-auto p-4 bg-peach bg-opacity-45  rounded-md  shadow-xl">
           <h2 className="font-Vazir text-bistre text-center text-2xl mb-2">
-            ویرایش محصول
+            اطلاعات محصول جدید :
           </h2>
-          <Formik>
+          <Formik
+            initialValues={{
+              title: "",
+              price: "",
+              category: "",
+              image: "",
+            }}
+            onSubmit={async (values) => {
+              try {
+                const payload = {
+                  title: values.title,
+                  price: values.price,
+                  category: values.category,
+                  image: values.image,
+                };
+                await addProduct(payload).unwrap();
+                navigate("/admin");
+              } catch (err) {
+                console.error(err);
+              }
+            }}
+          >
             <Form className="space-y-4">
               <div>
                 <label className=" font-Vazir block text-md text-bistre font-medium">
