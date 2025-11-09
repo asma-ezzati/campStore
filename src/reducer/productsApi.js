@@ -6,7 +6,13 @@ export const productsApi = createApi({
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => `products`,
-      providesTags: ["Products"],
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map((p) => ({ type: "Product", id: p.id })),
+              { type: "Products", id: "LIST" },
+            ]
+          : [{ type: "Products", id: "LIST" }],
     }),
     getProductById: builder.query({
       query: (id) => `products/${id}`,
@@ -14,25 +20,31 @@ export const productsApi = createApi({
     }),
     getCategories: builder.query({
       query: () => `category`,
-      providesTags: ["Categories"],
+      providesTags: [{ type: "Categories", id: "LIST" }],
     }),
     deleteProduct: builder.mutation({
       query: (productId) => ({
         url: `products/${productId}`,
         method: "DELETE",
-        body: productId,
       }),
-      invalidatesTags: (result, error, { productId }) => [
-        { type: "Products", productId },
+      invalidatesTags: (result, error, arg) => [
+        { type: "Products", id: "LIST" },
+        { type: "Product", id: arg },
       ],
     }),
     editProducts: builder.mutation({
-      query: (id, ...initialState) => ({
-        url: `products/${id}`,
-        method: "PUT",
-        body: initialState,
-      }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Products", id }],
+      query: (payload) => {
+        const { id, ...body } = payload;
+        return {
+          url: `products/${id}`,
+          method: "PUT",
+          body,
+        };
+      },
+      invalidatesTags: (result, error, arg) => [
+        { type: "Product", id: arg.id },
+        { type: "Products", id: "LIST" },
+      ],
     }),
   }),
 });
