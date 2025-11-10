@@ -1,19 +1,27 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import {
   useGetCategoriesQuery,
   useAddProductMutation,
 } from "../../reducer/productsApi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import * as Yup from "yup";
 
 const AddProduct = () => {
   const navigate = useNavigate();
   const { data: categories } = useGetCategoriesQuery();
   const [addProduct] = useAddProductMutation();
 
+  const schema = Yup.object({
+    title: Yup.string().required("نام الزامی است📍"),
+    price: Yup.string().required("نوشتن قیمت الزامی است 📍"),
+    image: Yup.string().required("لطفا آدرس عکس را وارد کنید "),
+    category: Yup.string().required("انتخاب دسته‌بندی الزامی است"),
+  });
+
   return (
     <>
-      <div className="h-screen bg-lion py-12   ">
+      <div className=" bg-lion py-12   ">
         <div className="max-w-2xl mx-auto p-4 bg-peach bg-opacity-45  rounded-md  shadow-xl">
           <h2 className="font-Vazir text-bistre text-center text-2xl mb-2">
             اطلاعات محصول جدید :
@@ -25,6 +33,7 @@ const AddProduct = () => {
               category: "",
               image: "",
             }}
+            validationSchema={schema}
             onSubmit={async (values) => {
               try {
                 const payload = {
@@ -51,6 +60,11 @@ const AddProduct = () => {
                   name="title"
                   className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
                 ></Field>
+                <ErrorMessage
+                  name="title"
+                  component="div"
+                  className="font-Vazir text-md m-2 text-red  text-center"
+                />
               </div>
 
               <div>
@@ -61,6 +75,11 @@ const AddProduct = () => {
                   name="price"
                   className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
                 ></Field>
+                <ErrorMessage
+                  name="price"
+                  component="div"
+                  className="font-Vazir text-md m-2 text-red  text-center"
+                />
               </div>
 
               <div>
@@ -83,6 +102,11 @@ const AddProduct = () => {
                     </option>
                   ))}
                 </Field>
+                <ErrorMessage
+                  name="category"
+                  component="div"
+                  className="font-Vazir text-md m-2 text-red  text-center"
+                />
               </div>
 
               <div>
@@ -91,8 +115,14 @@ const AddProduct = () => {
                 </label>
                 <Field
                   name="image"
+                  placeholder="example:/images/tent4.webp"
                   className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
                 ></Field>
+                <ErrorMessage
+                  name="image"
+                  component="div"
+                  className="font-Vazir text-md m-2 text-red  text-center"
+                />
               </div>
 
               <button
