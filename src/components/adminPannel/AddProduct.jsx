@@ -4,6 +4,7 @@ import {
   useAddProductMutation,
 } from "../../reducer/productsApi";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -33,8 +34,10 @@ const AddProduct = () => {
                   image: values.image,
                 };
                 await addProduct(payload).unwrap();
+                toast.success("محصول با موفقیت اضافه شد ✅");
                 navigate("/admin");
               } catch (err) {
+                toast.error("خطا در اضافه کردن محصول ❗");
                 console.error(err);
               }
             }}
