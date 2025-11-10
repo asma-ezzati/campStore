@@ -7,11 +7,13 @@ import AdminPage from "../components/adminPannel/AdminPage";
 import EditProductForm from "../components/adminPannel/EditProductForm";
 import AddProduct from "../components/adminPannel/AddProduct";
 import LoadingPage from "../common/LoadingPage";
+import NotFoundPage from "../common/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFoundPage />,
   },
   {
     path: "/products",
