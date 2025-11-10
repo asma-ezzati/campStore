@@ -300,6 +300,13 @@
       "price": 6500000,
       "category": "94",
       "image": "/images/Camping-Chair5.webp"
+    },
+    {
+      "id": "fb55",
+      "title": "چادر کوهنوردی",
+      "price": "500000",
+      "category": "100",
+      "image": "/images/tent5.webp"
     }
   ],
   "category": [
