@@ -1,5 +1,6 @@
 import { MdDeleteForever } from "react-icons/md";
 import { useDeleteProductMutation } from "../../reducer/productsApi";
+import { toast } from "react-toastify";
 
 const DeleteProduct = ({ id }) => {
   const [deleteProduct] = useDeleteProductMutation();
@@ -7,9 +8,9 @@ const DeleteProduct = ({ id }) => {
   const handleDleteButton = async () => {
     try {
       await deleteProduct(id).unwrap();
-      alert("محصول با موفقیت حذف شد ✅");
+      toast.success("محصول با موفقیت حذف شد ✅");
     } catch (err) {
-      alert("خطا در حذف محصول❌");
+      toast.error("خطا در حذف محصول❌");
       console.log(err);
     }
   };
