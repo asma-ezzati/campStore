@@ -5,6 +5,7 @@ import {
   useGetProductByIdQuery,
 } from "../../reducer/productsApi";
 import { Field, Formik, Form } from "formik";
+import { toast } from "react-toastify";
 
 const EditProductsForm = () => {
   const { productId } = useParams();
@@ -41,10 +42,12 @@ const EditProductsForm = () => {
                 console.log("payload =>", payload);
 
                 await editProduct(payload).unwrap();
+                toast.success("محصول با موفقیت بروزرسانی شد ✅");
                 setSubmitting(false);
                 navigate(`/admin`);
               } catch (err) {
                 console.error(err);
+                toast.error(" خطا در بروزرسانی محصول ❌ ");
                 setStatus({ error: "خطا در بروزرسانی محصول" });
                 setSubmitting(false);
               }
@@ -109,7 +112,6 @@ const EditProductsForm = () => {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting || updating}
                   className="bg-lion font-Vazir text-peach w-full my-4 px-4 py-2 rounded disabled:bg-opacity-50 hover:bg-bistre "
                 >
                   ذخیره
