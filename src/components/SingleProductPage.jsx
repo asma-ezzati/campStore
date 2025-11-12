@@ -35,7 +35,7 @@ const SingleProductPage = () => {
       <div className="h-screen bg-lion py-20 ">
         <div
           key={product.id}
-          className="bg-peach bg-opacity-50 w-[80%] rounded-md border-2 mx-auto grid grid-cols-3 items-center "
+          className="bg-peach bg-opacity-50 w-[80%] rounded-md  mx-auto grid grid-cols-3 items-center "
         >
           <img src={product.image} alt={product.title} className="p-4"></img>
           <div className="space-y-7 mx-auto ">
