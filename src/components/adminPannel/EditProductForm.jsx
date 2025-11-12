@@ -4,7 +4,8 @@ import {
   useGetCategoriesQuery,
   useGetProductByIdQuery,
 } from "../../reducer/productsApi";
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 const EditProductsForm = () => {
@@ -20,6 +21,13 @@ const EditProductsForm = () => {
 
   if (!product) return <div>notfound product</div>;
 
+  const schema = Yup.object({
+    title: Yup.string().required("نام الزامی است📍"),
+    price: Yup.string().required("نوشتن قیمت الزامی است 📍"),
+    image: Yup.string().required("لطفا آدرس عکس را وارد کنید "),
+    category: Yup.string().required("انتخاب دسته‌بندی الزامی است"),
+  });
+
   return (
     <>
       <div className="h-screen bg-lion py-12   ">
@@ -34,6 +42,7 @@ const EditProductsForm = () => {
               category: String(product.category ?? ""),
               image: product.image ?? "",
             }}
+            validationSchema={schema}
             enableReinitialize={true}
             onSubmit={async (values, { setSubmitting, setStatus }) => {
               try {
@@ -66,6 +75,11 @@ const EditProductsForm = () => {
                     name="title"
                     className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
                   ></Field>
+                  <ErrorMessage
+                    name="title"
+                    component="div"
+                    className="font-Vazir text-md m-2 text-red  text-center"
+                  />
                 </div>
 
                 <div>
@@ -76,6 +90,11 @@ const EditProductsForm = () => {
                     name="price"
                     className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
                   ></Field>
+                  <ErrorMessage
+                    name="price"
+                    component="div"
+                    className="font-Vazir text-md m-2 text-red  text-center"
+                  />
                 </div>
 
                 <div>
@@ -98,6 +117,11 @@ const EditProductsForm = () => {
                       </option>
                     ))}
                   </Field>
+                  <ErrorMessage
+                    name="category"
+                    component="div"
+                    className="font-Vazir text-md m-2 text-red  text-center"
+                  />
                 </div>
 
                 <div>
@@ -108,6 +132,11 @@ const EditProductsForm = () => {
                     name="image"
                     className=" font-Vazir text-md text-bistre bg-peach bg-opacity-80  mt-1 w-full   rounded-md p-2 focus:outline-1 focus:outline-none focus:ring-2 focus:ring-bistre  "
                   ></Field>
+                  <ErrorMessage
+                    name="image"
+                    component="div"
+                    className="font-Vazir text-md m-2 text-red  text-center"
+                  />
                 </div>
 
                 <button
