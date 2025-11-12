@@ -1,19 +1,34 @@
 import { useParams } from "react-router-dom";
-import { useGetProductByIdQuery } from "../reducer/productsApi";
+import {
+  useGetCategoryByIdQuery,
+  useGetProductByIdQuery,
+} from "../reducer/productsApi";
 import LoadingPage from "../common/LoadingPage";
 import { toast } from "react-toastify";
 
 const SingleProductPage = () => {
   const { productId } = useParams();
-  const { data: product, isLoading, error } = useGetProductByIdQuery(productId);
+  const {
+    data: product,
+    isLoading: pLoading,
+    error: pError,
+  } = useGetProductByIdQuery(productId);
 
-  if (isLoading) return <LoadingPage />;
-  if (error) {
+  const categoryId = product?.category;
+
+  const {
+    data: category,
+    isLoading: cLoading,
+    error: cError,
+  } = useGetCategoryByIdQuery(categoryId);
+
+  if (pLoading || cLoading) return <LoadingPage />;
+
+  if (pError || cError) {
     toast.error("خطای سرور❌");
   }
-  console.log(product);
 
-  if (!product) return [];
+  if (!product || !category) return [];
 
   return (
     <>
@@ -31,7 +46,7 @@ const SingleProductPage = () => {
               قیمت :{product.price}
             </h2>
             <h2 className="text-xl text-bistre font-Vazir font-semibold">
-              دسته بندی :{product.category}
+              دسته بندی :{category.name}
             </h2>
           </div>
         </div>
