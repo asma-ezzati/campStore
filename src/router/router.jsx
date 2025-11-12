@@ -8,6 +8,7 @@ import EditProductForm from "../components/adminPannel/EditProductForm";
 import AddProduct from "../components/adminPannel/AddProduct";
 import LoadingPage from "../common/LoadingPage";
 import NotFoundPage from "../common/NotFoundPage";
+import SingleProductPage from "../components/SingleProductPage";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
   {
     path: "/products",
     element: <ProductsList />,
+  },
+  {
+    path: "/products/:productId",
+    element: <SingleProductPage />,
   },
   {
     path: `/categories/:catId`,
