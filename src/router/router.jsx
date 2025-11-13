@@ -9,6 +9,7 @@ import AddProduct from "../components/adminPannel/AddProduct";
 import LoadingPage from "../common/LoadingPage";
 import NotFoundPage from "../common/NotFoundPage";
 import SingleProductPage from "../components/SingleProductPage";
+import CartPage from "../components/CartPage";
 
 export const router = createBrowserRouter([
   {
@@ -47,5 +48,9 @@ export const router = createBrowserRouter([
   {
     path: "/setting",
     element: <LoadingPage />,
+  },
+  {
+    path: "/cart",
+    element: <CartPage />,
   },
 ]);
