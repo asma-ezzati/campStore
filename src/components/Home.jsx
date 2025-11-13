@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import banner from "../assets/banner1.webp";
 import { RiAdminLine } from "react-icons/ri";
+import { BsCartCheck } from "react-icons/bs";
 
 const Home = () => {
   return (
@@ -21,6 +22,11 @@ const Home = () => {
           <Link to={"/admin"} className="text-bistre">
             <RiAdminLine size={30} className="m-2" />
           </Link>
+          <div className=" w-12 h-12  absolute top-0  left-14 border-2 border-bistre  rounded-full bg-[rgba(255,255,255,0.08)] bg-blur-[10px] ">
+            <Link to={"/cart"} className="text-bistre">
+              <BsCartCheck size={30} className="m-2" />
+            </Link>
+          </div>
         </div>
       </div>
     </>
