@@ -7,8 +7,11 @@ import { MdShoppingCart } from "react-icons/md";
 import { FaEye } from "react-icons/fa6";
 import { useMemo } from "react";
 import LoadingPage from "../common/LoadingPage";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../reducer/cartSlice";
 
 const ProductsList = () => {
+  const dispatch = useDispatch();
   const { data: products, isLoading: pLoading } = useGetProductsQuery();
   const { data: categories, isLoading: cLoading } = useGetCategoriesQuery();
 
@@ -59,14 +62,17 @@ const ProductsList = () => {
                   دسته بندی : {product.categoryName}
                 </h3>
               </div>
-              <div className="grid grid-rows-1   ">
+              <div className="grid grid-rows-1  ">
                 <Link
                   to={`/products/${product.id}`}
                   className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
                 >
                   <FaEye size={30} className="text-peach m-3 " />
                 </Link>
-                <button className="bg-bistre w-[55px] h-[55px] rounded-full m-2">
+                <button
+                  onClick={() => dispatch(addToCart(product.id))}
+                  className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
+                >
                   <MdShoppingCart size={30} className="text-peach m-3 " />
                 </button>
               </div>
