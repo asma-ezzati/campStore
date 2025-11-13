@@ -5,8 +5,11 @@ import {
 } from "../reducer/productsApi";
 import LoadingPage from "../common/LoadingPage";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../reducer/cartSlice";
 
 const SingleProductPage = () => {
+  const dispatch = useDispatch();
   const { productId } = useParams();
   const {
     data: product,
@@ -30,6 +33,16 @@ const SingleProductPage = () => {
 
   if (!product || !category) return [];
 
+  const handleAddToCart = () => {
+    try {
+      dispatch(addToCart(product));
+      toast.success("محصول با موفقیت به سبد خرید اضافه شد ✅");
+    } catch (err) {
+      console.log(err);
+      toast.error("خطا در اضافه کردن محصول به سبد خرید ❌");
+    }
+  };
+
   return (
     <>
       <div className="h-screen bg-lion py-20 ">
@@ -50,7 +63,10 @@ const SingleProductPage = () => {
             </h2>
           </div>
           <div className=" space-y-5">
-            <button className="  rounded-md py-3 w-[300px] font-Vazir text-md bg-lion hover:bg-bistre hover:text-lion  ">
+            <button
+              onClick={handleAddToCart}
+              className="  rounded-md py-3 w-[300px] font-Vazir text-md bg-lion hover:bg-bistre hover:text-lion  "
+            >
               اضافه کردن به سبد خرید
             </button>
             <Link
