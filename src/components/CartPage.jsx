@@ -3,6 +3,7 @@ import { FiMinusCircle } from "react-icons/fi";
 import { MdAddCircleOutline } from "react-icons/md";
 import { FaRegTrashCan } from "react-icons/fa6";
 import {
+  clearCart,
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
@@ -20,9 +21,17 @@ const CartPage = () => {
   return (
     <>
       <div className="h-screen bg-peach bg-opacity-45 ">
-        <h1 className="font-Vazir text-2xl font-bold text-bistre text-center py-4 ">
-          سبد خرید
-        </h1>
+        <div className="grid  grid-cols-12">
+          <h1 className="font-Vazir text-2xl font-bold text-bistre text-center py-4 col-span-10">
+            سبد خرید
+          </h1>
+          <button
+            onClick={() => dispatch(clearCart())}
+            className="w-[40%] bg-bistre text-peach rounded-lg py-2 font-Vazir text-lg m-4 col-span-2"
+          >
+            حذف همه
+          </button>
+        </div>
         <div className="grid grid-cols-7">
           <div className="col-span-5 border-2 border-bistre rounded-md p-2 m-2 ">
             <div className="grid grid-cols-4 ">
