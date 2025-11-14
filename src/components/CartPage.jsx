@@ -13,10 +13,7 @@ const CartPage = () => {
   const { items, totalPrice, totalQuantity } = useSelector(
     (state) => state.cart
   );
-  // console.log(totalprice);
   const dispatch = useDispatch();
-
-  const handleDeleteProduct = () => {};
 
   return (
     <>
