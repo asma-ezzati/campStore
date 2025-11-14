@@ -9,6 +9,7 @@ import { useMemo } from "react";
 import LoadingPage from "../common/LoadingPage";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../reducer/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductsList = () => {
   const dispatch = useDispatch();
@@ -70,7 +71,10 @@ const ProductsList = () => {
                   <FaEye size={30} className="text-peach m-3 " />
                 </Link>
                 <button
-                  onClick={() => dispatch(addToCart(product.id))}
+                  onClick={() => {
+                    dispatch(addToCart(product));
+                    toast.success("محصول با موفقیت به سبد خرید اضافه شد ✅");
+                  }}
                   className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
                 >
                   <MdShoppingCart size={30} className="text-peach m-3 " />
