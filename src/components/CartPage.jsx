@@ -2,6 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { FiMinusCircle } from "react-icons/fi";
 import { MdAddCircleOutline } from "react-icons/md";
 import { FaRegTrashCan } from "react-icons/fa6";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from "../reducer/cartSlice";
 
 const CartPage = () => {
   const { items, totalPrice, totalQuantity } = useSelector(
@@ -9,6 +14,9 @@ const CartPage = () => {
   );
   // console.log(totalprice);
   const dispatch = useDispatch();
+
+  const handleDeleteProduct = () => {};
+
   return (
     <>
       <div className="h-screen bg-peach bg-opacity-45 ">
@@ -33,17 +41,23 @@ const CartPage = () => {
             </div>
             <hr className="text-bistre border-1 m-2"></hr>
             {items.map((item) => (
-              <div className="grid grid-cols-4   p-2">
+              <div key={item.title} className="grid grid-cols-4   p-2">
                 <h1 className="text-center font-Vazir text-bistre text-lg ">
                   {item.title}
                 </h1>
                 <div>
                   <h1 className="text-center font-Vazir text-bistre text-lg ">
-                    <button className="mx-2 hover:text-red">
+                    <button
+                      onClick={() => dispatch(increaseQuantity(item.id))}
+                      className="mx-2 hover:text-red"
+                    >
                       <MdAddCircleOutline size={20} />
                     </button>
                     {item.quantity}
-                    <button className="mx-2 hover:text-red">
+                    <button
+                      onClick={() => dispatch(decreaseQuantity(item.id))}
+                      className="mx-2 hover:text-red"
+                    >
                       <FiMinusCircle size={20} />
                     </button>
                   </h1>
@@ -52,7 +66,10 @@ const CartPage = () => {
                   {item.price}
                 </h1>
                 <h1 className="text-center font-Vazir text-bistre text-lg ">
-                  <button className="hover:text-red">
+                  <button
+                    onClick={() => dispatch(removeFromCart(item.id))}
+                    className="hover:text-red"
+                  >
                     <FaRegTrashCan size={20} />
                   </button>
                 </h1>
