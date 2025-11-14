@@ -7,9 +7,13 @@ import { useMemo } from "react";
 import { FaEye } from "react-icons/fa6";
 import { MdShoppingCart } from "react-icons/md";
 import LoadingPage from "../common/LoadingPage";
+import { addToCart } from "../reducer/cartSlice";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
 const CategoryPage = () => {
   const { catId } = useParams();
+  const dispatch = useDispatch();
   const { data: products, isLoading: pLoading } = useGetProductsQuery();
   const { data: categories, isLoading: cLoading } = useGetCategoriesQuery();
 
@@ -65,7 +69,13 @@ const CategoryPage = () => {
                 >
                   <FaEye size={30} className="text-peach m-3 " />
                 </Link>
-                <button className="bg-bistre w-[55px] h-[55px] rounded-full m-2">
+                <button
+                  onClick={() => {
+                    dispatch(addToCart(item));
+                    toast.success("محصول با موفقیت به سبد خرید اضافه شد ✅");
+                  }}
+                  className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
+                >
                   <MdShoppingCart size={30} className="text-peach m-3 " />
                 </button>
               </div>
