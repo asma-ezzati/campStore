@@ -37,22 +37,22 @@ const ProductsList = () => {
 
   return (
     <>
-      <div className=" grid grid-cols-4  bg-peach bg-opacity-40  ">
-        <h1 className="col-span-4 font-Vazir text-bistre text-2xl font-bold text-center mt-6 ">
+      <div className=" w-full mx-auto px-4 bg-peach bg-opacity-40">
+        <h1 className="col-span-4 font-Vazir text-bistre text-2xl font-bold text-center pt-6 ">
           محصولات فروشگاه ما
         </h1>
-        {finalData.map((product) => (
-          <div
-            key={product.id}
-            className=" border-2 border-lion rounded-md  m-2 w-[300px] h-[435px]  "
-          >
-            <img
-              src={product.image}
-              alt={product.title}
-              className="w-[200px] m-10  "
-            ></img>
-            <div className="grid grid-cols-4">
-              <div className="col-span-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  p-4 mt-4">
+          {finalData.map((product) => (
+            <div
+              key={product.id}
+              className="border-2 border-lion rounded-md p-4 w-full flex flex-col justify-between"
+            >
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full max-w-[180px] h-[140px] object-contain  "
+              ></img>
+              <div className="mt-3 text-right">
                 <h1 className=" font-Vazir text-lg text-right text-bistre mr-3 ">
                   نام محصول : {product.title}
                 </h1>
@@ -63,10 +63,10 @@ const ProductsList = () => {
                   دسته بندی : {product.categoryName}
                 </h3>
               </div>
-              <div className="grid grid-rows-1  ">
+              <div className="mt-4 flex gap-2 justify-end items-center  ">
                 <Link
                   to={`/products/${product.id}`}
-                  className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
+                  className="bg-bistre w-11 h-11 rounded-full flex items-center justify-center"
                 >
                   <FaEye size={30} className="text-peach m-3 " />
                 </Link>
@@ -75,14 +75,14 @@ const ProductsList = () => {
                     dispatch(addToCart(product));
                     toast.success("محصول با موفقیت به سبد خرید اضافه شد ✅");
                   }}
-                  className="bg-bistre w-[55px] h-[55px] rounded-full m-2"
+                  className="bg-bistre w-11 h-11 rounded-full flex items-center justify-center"
                 >
                   <MdShoppingCart size={30} className="text-peach m-3 " />
                 </button>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
