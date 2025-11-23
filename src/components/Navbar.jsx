@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Home from "./Home";
 import AboutUs from "./AboutUs";
 import Shop from "./shop";
@@ -10,6 +10,8 @@ const Navbar = () => {
   const storeRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
+
+  const [open, setOpen] = useState(false);
 
   const scrollToSections = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
