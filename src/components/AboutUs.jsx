@@ -4,9 +4,9 @@ const AboutUs = () => {
   return (
     <>
       <div className="h-screen rounded-md m-2 bg-peach flex items-center justify-center">
-        <div className="bg-lion w-[900px] h-[400px] rounded-md flex items-center justify-center ">
-          <img src={banner2} className="w-2/5 "></img>
-          <p className="w-1/2 font-Vazir text-bistre text-lg font-medium text-justify ">
+        <div className="bg-lion md:w-[900px] md:h-[400px] rounded-md md:flex  items-center justify-center ">
+          <img src={banner2} className="md:w-2/5 sm:w-full "></img>
+          <p className="md:w-1/2 font-Vazir text-bistre text-lg font-medium text-justify ">
             به فروشگاه ما خوش اومدید! ما عاشق طبیعت، سفر و ماجراجویی هستیم و
             می‌دونیم هیچ چیز لذت‌بخش‌تر از یه کمپ بی‌دغدغه با تجهیزات کامل نیست.
             اینجا جاییه که می‌تونید هرچی برای سفر و کمپینگ نیاز دارید پیدا کنید؛
