@@ -4,6 +4,8 @@ import AboutUs from "./AboutUs";
 import Shop from "./shop";
 import ContactUs from "./ContactUs";
 import { Link } from "react-router-dom";
+import { IoClose } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
   const homeRef = useRef(null);
@@ -15,12 +17,20 @@ const Navbar = () => {
 
   const scrollToSections = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
   };
 
   return (
     <>
       <div>
         <nav className="absolute top-4 right-[430px] font-Vazir text-xl border-bistre  p-4 border-b  ">
+          {/* icons */}
+          <div className="md:hidden">
+            <button onClick={() => setOpen(!open)}>
+              {open ? <IoClose size={30} /> : <RxHamburgerMenu size={30} />}
+            </button>
+          </div>
+          {/* Desktop */}
           <button
             className="px-3 text-bistre"
             onClick={() => {
@@ -45,7 +55,6 @@ const Navbar = () => {
           >
             فروشگاه
           </button>
-
           <button
             className="px-3 text-bistre"
             onClick={() => {
