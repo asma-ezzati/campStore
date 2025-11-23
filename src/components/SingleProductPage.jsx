@@ -45,13 +45,13 @@ const SingleProductPage = () => {
 
   return (
     <>
-      <div className="h-screen bg-lion py-20 ">
+      <div className="min-h-screen bg-lion py-20 ">
         <div
           key={product.id}
-          className="bg-peach bg-opacity-50 w-[80%] rounded-md  mx-auto grid grid-cols-3 items-center "
+          className="bg-peach bg-opacity-50 w-[80%] rounded-md  mx-auto grid grid-cols-1 md:grid-cols-1  lg:grid-cols-3 items-center "
         >
           <img src={product.image} alt={product.title} className="p-4"></img>
-          <div className="space-y-7 mx-auto ">
+          <div className="space-y-7 mx-auto mb-4 ">
             <h1 className="text-xl text-bistre font-Vazir font-semibold ">
               نام محصول :{product.title}
             </h1>
@@ -62,16 +62,16 @@ const SingleProductPage = () => {
               دسته بندی :{category.name}
             </h2>
           </div>
-          <div className=" space-y-5">
+          <div className=" space-y-5 mb-5">
             <button
               onClick={handleAddToCart}
-              className="  rounded-md py-3 w-[300px] font-Vazir text-md bg-lion hover:bg-bistre hover:text-lion  "
+              className="  rounded-md py-3 w-[95%] mx-2  lg:w-[300px] font-Vazir text-md bg-lion hover:bg-bistre hover:text-lion   "
             >
               اضافه کردن به سبد خرید
             </button>
             <Link
               to={"/products"}
-              className="block  rounded-md py-3 text-center w-[300px] font-Vazir text-md bg-lion hover:bg-bistre hover:text-lion  "
+              className="block  rounded-md py-3 text-center w-[95%] mx-2 lg:w-[300px] font-Vazir text-md bg-lion hover:bg-bistre hover:text-lion  "
             >
               بازگشت به فروشگاه
             </Link>
