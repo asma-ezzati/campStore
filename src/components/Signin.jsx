@@ -14,7 +14,7 @@ const Signin = () => {
   return (
     <>
       <div className="h-screen bg-red grid place-items-center ">
-        <div className="w-[60%] mx-auto  rounded-md grid grid-cols-3 grid-rows-1 bg-lion  ">
+        <div className="w-[80%]  lg:w-[60%] mx-auto  rounded-md grid grid-cols-1 lg:grid-cols-3 grid-rows-1 bg-lion  ">
           <div className="col-span-2">
             <h1 className="font-Vazir text-lg font-semibold p-2 mt-6 text-center text-bistre ">
               ساخت حساب کاربری
@@ -30,7 +30,7 @@ const Signin = () => {
                   name="email"
                   type="email"
                   placeholder="ایمیل"
-                  className="w-2/3 my-4 bg-lion border-2 border-bistre rounded-md p-2 focus:outline-none  block mx-auto placeholder:text-bistre focus:border-red "
+                  className="w-full lg:w-2/3 my-4 bg-lion border-2 border-bistre rounded-md p-2 focus:outline-none  block mx-auto placeholder:text-bistre focus:border-red "
                 />
                 <ErrorMessage
                   name="email"
@@ -42,7 +42,7 @@ const Signin = () => {
                   name="password"
                   type="password"
                   placeholder="پسورد"
-                  className="w-2/3 my-4 bg-lion border-2 border-bistre rounded-md p-2 focus:outline-none block mx-auto  placeholder:text-bistre focus:border-red"
+                  className="w-full lg:w-2/3 my-4 bg-lion border-2 border-bistre rounded-md p-2 focus:outline-none block mx-auto  placeholder:text-bistre focus:border-red"
                 />
                 <ErrorMessage
                   name="password"
@@ -51,14 +51,14 @@ const Signin = () => {
                 ></ErrorMessage>
                 <button
                   type="submit"
-                  className="w-2/3 my-4 mx-[77px] border-bistre border-2 p-2 rounded-md bg-bistre text-peach hover:shadow-xl shadow-bistre"
+                  className="w-full lg:w-2/3 my-4 lg:mx-[77px] border-bistre border-2 p-2 rounded-md bg-bistre text-peach hover:shadow-xl shadow-bistre"
                 >
                   ثبت نام
                 </button>
               </Form>
             </Formik>
           </div>
-          <img src={banner3} className="w-[300px] p-5  "></img>
+          <img src={banner3} className=" hidden lg:block w-[300px] p-5  "></img>
         </div>
       </div>
     </>
