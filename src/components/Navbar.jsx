@@ -23,49 +23,101 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <nav className="absolute top-4 right-[430px] font-Vazir text-xl border-bistre  p-4 border-b  ">
+        <nav className=" font-Vazir text-xl  p-4  fixed  z-50 top-4 right-4 ">
           {/* icons */}
-          <div className="md:hidden">
+          <div className="md:hidden  ">
             <button onClick={() => setOpen(!open)}>
-              {open ? <IoClose size={30} /> : <RxHamburgerMenu size={30} />}
+              {open ? (
+                <IoClose size={30} className="text-bistre" />
+              ) : (
+                <RxHamburgerMenu size={30} className="text-bistre" />
+              )}
             </button>
           </div>
           {/* Desktop */}
-          <button
-            className="px-3 text-bistre"
-            onClick={() => {
-              scrollToSections(homeRef);
-            }}
-          >
-            خانه
-          </button>
-          <button
-            className="px-3 text-bistre"
-            onClick={() => {
-              scrollToSections(aboutRef);
-            }}
-          >
-            درباره ما
-          </button>
-          <button
-            className="px-3 text-bistre"
-            onClick={() => {
-              scrollToSections(storeRef);
-            }}
-          >
-            فروشگاه
-          </button>
-          <button
-            className="px-3 text-bistre"
-            onClick={() => {
-              scrollToSections(contactRef);
-            }}
-          >
-            تماس با ما
-          </button>
-          <Link to={"/signin"} className="px-3 text-bistre">
-            ثبت نام
-          </Link>
+          <div className="hidden md:flex gap-6 font-Vazir text-xl bg-white/60 backdrop-blur-lg p-4 rounded-xl shadow  ">
+            <button
+              className="px-3 text-bistre  hover:text-peach "
+              onClick={() => {
+                scrollToSections(homeRef);
+              }}
+            >
+              خانه
+            </button>
+            <button
+              className="px-3 text-bistre hover:text-peach "
+              onClick={() => {
+                scrollToSections(aboutRef);
+              }}
+            >
+              درباره ما
+            </button>
+            <button
+              className="px-3 text-bistre hover:text-peach "
+              onClick={() => {
+                scrollToSections(storeRef);
+              }}
+            >
+              فروشگاه
+            </button>
+            <button
+              className="px-3 text-bistre hover:text-peach "
+              onClick={() => {
+                scrollToSections(contactRef);
+              }}
+            >
+              تماس با ما
+            </button>
+            <Link to={"/signin"} className="px-3 text-bistre hover:text-peach ">
+              ثبت نام
+            </Link>
+          </div>
+
+          {/* Mobile */}
+
+          {open && (
+            <div className="md:hidden absolute top-12 right-0 bg-white/80 backdrop-blur-xl shadow-lg rounded-xl p-5 flex flex-col gap-4 text-lg">
+              <button
+                className="px-3 text-bistre hover:text-peach"
+                onClick={() => {
+                  scrollToSections(homeRef);
+                }}
+              >
+                خانه
+              </button>
+              <button
+                className="px-3 text-bistre hover:text-peach"
+                onClick={() => {
+                  scrollToSections(aboutRef);
+                }}
+              >
+                درباره ما
+              </button>
+              <button
+                className="px-3 text-bistre hover:text-peach"
+                onClick={() => {
+                  scrollToSections(storeRef);
+                }}
+              >
+                فروشگاه
+              </button>
+              <button
+                className="px-3 text-bistre hover:text-peach"
+                onClick={() => {
+                  scrollToSections(contactRef);
+                }}
+              >
+                تماس با ما
+              </button>
+              <Link
+                to={"/signin"}
+                onClick={() => setOpen(false)}
+                className="px-3 text-bistre hover:text-peach"
+              >
+                ثبت نام
+              </Link>
+            </div>
+          )}
         </nav>
         <section ref={homeRef} style={{ height: "100vh" }}>
           <Home />
