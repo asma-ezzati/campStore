@@ -119,16 +119,16 @@ const Navbar = () => {
             </div>
           )}
         </nav>
-        <section ref={homeRef} style={{ height: "100vh" }}>
+        <section ref={homeRef}>
           <Home />
         </section>
-        <section ref={aboutRef} style={{ height: "100vh" }}>
+        <section ref={aboutRef}>
           <AboutUs />
         </section>
-        <section ref={storeRef} style={{ height: "100vh" }}>
+        <section ref={storeRef}>
           <Shop />
         </section>
-        <section ref={contactRef} style={{ height: "100vh" }}>
+        <section ref={contactRef}>
           <ContactUs />
         </section>
       </div>
