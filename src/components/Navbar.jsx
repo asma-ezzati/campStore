@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Home from "./Home";
 import AboutUs from "./AboutUs";
-import Shop from "./shop";
+import Shop from "./Shop.jsx";
 import ContactUs from "./ContactUs";
 import { Link } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
