@@ -2,7 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:9000/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://6a29487df59cb8f65f1cd3c2.mockapi.io/api/v1/",
+  }),
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => `products`,
@@ -16,7 +18,7 @@ export const productsApi = createApi({
     }),
     getProductById: builder.query({
       query: (id) => `products/${id}`,
-      providesTags: (result, error, { id }) => [{ type: "Product", id }],
+      providesTags: (result, error, id) => [{ type: "Product", id }],
     }),
     getCategories: builder.query({
       query: () => `category`,
@@ -24,7 +26,7 @@ export const productsApi = createApi({
     }),
     getCategoryById: builder.query({
       query: (id) => `category/${id}`,
-      providesTags: (result, error, { id }) => [{ type: "Categories", id }],
+      providesTags: (result, error, id) => [{ type: "Categories", id }],
     }),
     deleteProduct: builder.mutation({
       query: (productId) => ({

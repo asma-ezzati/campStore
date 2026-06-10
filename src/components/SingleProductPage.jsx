@@ -23,7 +23,7 @@ const SingleProductPage = () => {
     data: category,
     isLoading: cLoading,
     error: cError,
-  } = useGetCategoryByIdQuery(categoryId);
+  } = useGetCategoryByIdQuery(categoryId, { skip: !categoryId });
 
   if (pLoading || cLoading) return <LoadingPage />;
 
